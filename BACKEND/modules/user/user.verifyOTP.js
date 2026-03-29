@@ -30,6 +30,7 @@ exports.verifyOTP = async (req, res) => {
         // Delete the OTP from Redis after Verification
         await redisClient.del(email);
         res.status(200).json({ message: '[INFO] - OTP verified successfully ✅  ' });
+        console.log("OTP verified  ✅")
     } catch (error) {
         console.error('Error verifying OTP:', error);
         res.status(500).json({ message: '[ERROR] - Internal server error' });
